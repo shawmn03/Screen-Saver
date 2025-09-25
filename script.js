@@ -10,7 +10,7 @@ resize();
 window.addEventListener("resize", resize);
 
 const music = document.getElementById("music");
-if (music) music.volume = 0.15;
+if (music) music.volume = 0.50;
 
 const colors = [
   "#FDD692", 

@@ -11,7 +11,7 @@ window.addEventListener("resize", resize);
 
 const music = document.getElementById("music");
 if (music) {
-  music.volume = 100;
+  music.volume = 0.5;
   music.muted = true; 
   music.play().then(() => {
     music.muted = false;
@@ -34,12 +34,12 @@ class Clump {
     this.x = Math.random() * W;
     this.y = Math.random() * H;
 
-    this.r = 200 + Math.random() * 150;
+    this.r = 300 + Math.random() * 300;
 
     this.color = colors[Math.floor(Math.random() * colors.length)];
 
-    this.dx = (Math.random() - 0.5) * 1.5;
-    this.dy = (Math.random() - 0.5) * 1.5;
+    this.dx = (Math.random() - 0.5) * 3;
+    this.dy = (Math.random() - 0.5) * 3;
   }
   update() {
     this.x += this.dx;
@@ -50,7 +50,10 @@ class Clump {
     if (this.y > H + this.r) this.y = -this.r;
   }
   draw() {
-    const grad = ctx.createRadialGradient(this.x, this.y, this.r * 0.3, this.x, this.y, this.r);
+    const grad = ctx.createRadialGradient(
+      this.x, this.y, this.r * 0.3,
+      this.x, this.y, this.r
+    );
     grad.addColorStop(0, this.color);
     grad.addColorStop(1, "transparent");
     ctx.fillStyle = grad;
@@ -60,7 +63,7 @@ class Clump {
   }
 }
 
-const clumps = Array.from({ length: 12 }, () => new Clump());
+const clumps = Array.from({ length: 8 }, () => new Clump());
 
 function animate() {
   ctx.clearRect(0, 0, W, H);
@@ -69,6 +72,10 @@ function animate() {
     clump.update();
     clump.draw();
   });
+  requestAnimationFrame(animate);
+}
+animate();
+
   requestAnimationFrame(animate);
 }
 animate();

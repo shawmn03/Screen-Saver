@@ -10,13 +10,30 @@ resize();
 window.addEventListener("resize", resize);
 
 const music = document.getElementById("music");
-if (music) {
-  music.volume = 1.0;
-  music.muted = false;
-  music.play().catch(() => {
-    console.log("Interact with the screen to start the music.");
-  });
-}
+music.loop = true;
+music.volume = 1.0;
+music.muted = false;
+
+let musicPlaying = false;
+
+const prompt = document.createElement("div");
+prompt.innerText = "- click spacebar for music -";
+prompt.className = "prompt";
+document.body.appendChild(prompt);
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    if (!musicPlaying) {
+      music.play().catch(err => console.log("Interaction required:", err));
+      musicPlaying = true;
+      prompt.style.display = "none";
+    } else {
+      music.pause();
+      musicPlaying = false;
+      prompt.style.display = "block";
+    }
+  }
+});
 
 const colors = [
   "#FDD692", 
@@ -58,7 +75,7 @@ class Clump {
   }
 }
 
-const clumps = Array.from({ length: 12 }, () => new Clump());
+const clumps = Array.from({ length: 10 }, () => new Clump());
 
 function animate() {
   ctx.clearRect(0, 0, W, H);

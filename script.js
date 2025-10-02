@@ -12,7 +12,7 @@ window.addEventListener("resize", resize);
 const music = document.getElementById("music");
 if (music) {
   music.volume = 0.5;
-  music.muted = true; 
+  music.muted = true;
   music.play().then(() => {
     music.muted = false;
   }).catch(() => {
@@ -33,13 +33,10 @@ class Clump {
   reset() {
     this.x = Math.random() * W;
     this.y = Math.random() * H;
-
-    this.r = 300 + Math.random() * 300;
-
+    this.r = 300 + Math.random() * 200;
     this.color = colors[Math.floor(Math.random() * colors.length)];
-
-    this.dx = (Math.random() - 0.5) * 3;
-    this.dy = (Math.random() - 0.5) * 3;
+    this.dx = (Math.random() - 0.5) * 2;
+    this.dy = (Math.random() - 0.5) * 2;
   }
   update() {
     this.x += this.dx;
@@ -72,10 +69,6 @@ function animate() {
     clump.update();
     clump.draw();
   });
-  requestAnimationFrame(animate);
-}
-animate();
-
   requestAnimationFrame(animate);
 }
 animate();

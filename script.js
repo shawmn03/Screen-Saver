@@ -10,7 +10,15 @@ resize();
 window.addEventListener("resize", resize);
 
 const music = document.getElementById("music");
-if (music) music.volume = 0.50;
+if (music) {
+  music.volume = 0.5;
+  music.muted = true; 
+  music.play().then(() => {
+    music.muted = false;
+  }).catch(() => {
+    console.log("Interact with the screen to start the music.");
+  });
+}
 
 const colors = [
   "#FDD692", 
@@ -25,10 +33,13 @@ class Clump {
   reset() {
     this.x = Math.random() * W;
     this.y = Math.random() * H;
-    this.r = 150 + Math.random() * 120;
+
+    this.r = 200 + Math.random() * 150;
+
     this.color = colors[Math.floor(Math.random() * colors.length)];
-    this.dx = (Math.random() - 0.5) * 0.5;
-    this.dy = (Math.random() - 0.5) * 0.5;
+
+    this.dx = (Math.random() - 0.5) * 1.5;
+    this.dy = (Math.random() - 0.5) * 1.5;
   }
   update() {
     this.x += this.dx;

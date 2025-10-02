@@ -11,11 +11,9 @@ window.addEventListener("resize", resize);
 
 const music = document.getElementById("music");
 if (music) {
-  music.volume = 0.5;
-  music.muted = true;
-  music.play().then(() => {
-    music.muted = false;
-  }).catch(() => {
+  music.volume = 1.0;
+  music.muted = false;
+  music.play().catch(() => {
     console.log("Interact with the screen to start the music.");
   });
 }
@@ -60,7 +58,7 @@ class Clump {
   }
 }
 
-const clumps = Array.from({ length: 8 }, () => new Clump());
+const clumps = Array.from({ length: 12 }, () => new Clump());
 
 function animate() {
   ctx.clearRect(0, 0, W, H);

@@ -31,4 +31,24 @@ html, body {
   }
   
   #music { display: none; }
+
+.prompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "cc-dash-to-school-shadow", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 2rem;
+  color: white;
+  animation: fade 2s infinite;
+  text-shadow: 0 0 10px black;
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
   

@@ -34,7 +34,7 @@ class Clump {
     this.x = Math.random() * W;
     this.y = Math.random() * H;
 
-    this.r = 300 + Math.random() * 150;
+    this.r = 200 + Math.random() * 150;
 
     this.color = colors[Math.floor(Math.random() * colors.length)];
 

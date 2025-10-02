@@ -11,7 +11,7 @@ window.addEventListener("resize", resize);
 
 const music = document.getElementById("music");
 if (music) {
-  music.volume = 0.5;
+  music.volume = 100;
   music.muted = true; 
   music.play().then(() => {
     music.muted = false;
@@ -34,7 +34,7 @@ class Clump {
     this.x = Math.random() * W;
     this.y = Math.random() * H;
 
-    this.r = 200 + Math.random() * 150;
+    this.r = 300 + Math.random() * 150;
 
     this.color = colors[Math.floor(Math.random() * colors.length)];
 

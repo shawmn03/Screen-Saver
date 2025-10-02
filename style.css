@@ -34,13 +34,13 @@ html, body {
 
 .prompt {
   position: absolute;
-  top: 50%;
+  bottom: 30px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   font-family: "cc-dash-to-school-shadow", sans-serif;
   font-weight: 900;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 1rem;
   color: white;
   animation: fade 2s infinite;
   text-shadow: 0 0 10px black;
